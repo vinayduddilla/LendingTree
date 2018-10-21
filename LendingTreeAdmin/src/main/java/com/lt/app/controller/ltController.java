@@ -2,6 +2,8 @@ package com.lt.app.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -11,14 +13,13 @@ import com.lt.app.service.BankService;
 import com.lt.app.service.BankServiceImpl;
 
 
-
+@Controller
 @RequestMapping("/lending")
 public class ltController {
 	
 	@RequestMapping(value="/ltRegistration", method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView getRegistrationPage() {
-		System.out.println("Initialized");
-		return new ModelAndView("views/ltRegister");
+		return new ModelAndView("/ltRegister");
 	}
 	@RequestMapping(value="/viewLoan")
 	public ModelAndView viewLoanRequest(HttpServletRequest request,HttpServletResponse response) {
